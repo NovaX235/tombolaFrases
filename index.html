@@ -10,7 +10,6 @@
     background-image: url("https://i.imgur.com/QENpMVB.jpeg");
     background-position: center;
     background-repeat: no-repeat;
-    size: 
   }
 
   body::before {
@@ -50,6 +49,9 @@
   #lista {
     text-align: left;
     color: white;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
   }
 
   /* Resultado destacado */
@@ -62,6 +64,7 @@
     font-weight: bold;
     min-height: 60px;
     text-align: center;
+    display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -90,8 +93,23 @@
     padding: 10px;
     width: 100%;
     cursor: pointer;
-    color: green;
-    background: #B86C51;
+    border: none;
+    border-radius: 8px;
+
+    background: linear-gradient(135deg, #4CAF50, #2e7d32);
+    color: white;
+    font-weight: bold;
+
+    transition: 0.2s;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  }
+  
+  button:active {
+    transform: scale(0.97);
   }
   footer{
     text-align: center;
@@ -203,11 +221,14 @@
         return;
       }
 
-      const random = Math.floor(Math.random() * frases.length);
-      document.getElementById("resultado").innerText = frases[random];
-
       const resultadoDiv = document.getElementById("resultado");
-      resultadoDiv.classList.add("visible");
+      resultadoDiv.classList.remove("visible");
+      setTimeout(() => {
+        const random = Math.floor(Math.random() * frases.length);
+        resultadoDiv.innerText = frases[random];
+      
+        resultadoDiv.classList.add("visible");
+        }, 100);
     }
 
     // Mostrar lista inicial
