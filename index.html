@@ -34,7 +34,7 @@
   }
   .contenedor {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 20px;
     align-items: start;
@@ -91,6 +91,7 @@
     width: 100%;
     cursor: pointer;
     color: green;
+    background-color: #B86C51;
   }
   footer{
     text-align: center;
@@ -107,16 +108,6 @@
 
   <h1>Tómbola interactiva</h1>
 <div class="contenedor">
-
-  <!-- Columna izquierda -->
-  <div class="columna">
-    <h3>Ingresa frases:</h3>
-
-    <input type="text" id="inputFrase" placeholder="Escribe una frase...">
-
-    <button onclick="agregarFrase()">Agregar</button>
-  </div>
-
   <!-- Columna centro -->
   <div class="columna">
     <h3>Lista de frases</h3>
